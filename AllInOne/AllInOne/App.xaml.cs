@@ -11,11 +11,14 @@ namespace AllInOne
 
         public App()
         {
+
             InitializeComponent();
 
             DependencyService.Register<MockDataStore>();
             MainPage = new AppShell();
-        }
+            
+
+    }
 
         protected override void OnStart()
         {
