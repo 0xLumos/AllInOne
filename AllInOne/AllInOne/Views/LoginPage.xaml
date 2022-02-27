@@ -17,8 +17,9 @@
                            PlaceholderColor="red" HeightRequest="50"   
                            IsPassword="True"  
                            TextColor="red"/>
-            <Label  TextColor="red" Text="{Binding ErrorMessage}" />
             <Button VerticalOptions="Center" Text="Login" Command="{Binding LoginCommand}"/>
+            <Label  TextColor="red" Text="{Binding ErrorMessage}" />
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

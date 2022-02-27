@@ -6,7 +6,7 @@ namespace AllInOne.ViewModels
     {
         private string errorMessage;
         public string ErrorMessage { get => errorMessage;
-                set {
+            set {
                 errorMessage = value;
                 OnPropertyChanged();
             }
@@ -19,7 +19,7 @@ namespace AllInOne.ViewModels
             set
             {
                 email = value;
-                
+
             }
         }
         private string password;
@@ -29,7 +29,7 @@ namespace AllInOne.ViewModels
             set
             {
                 password = value;
-                
+
             }
         }
         public Command LoginCommand { protected set; get; }
@@ -39,14 +39,31 @@ namespace AllInOne.ViewModels
         }
         public async void OnLoginClicked()
         {
-            if (email != "user" || password != "secret")
+            // if(user !=null ){
+            if (email != null || password != null)
             {
-                await Shell.Current.GoToAsync($"//{nameof(AboutPage)}");
+                if (email != "user" || password != "secret")
+
+                {
+                    ErrorMessage = "Wrong email or password!";
+
+
+                }
+
+                else
+                {
+
+                    await Shell.Current.GoToAsync($"//{nameof(ItemsPage)}");
+
+                }
+              
             }
             else
             {
-                ErrorMessage = "Wrong details!";
+                ErrorMessage = "Please specify both fields";
             }
-        }
-    }
-}
+               
+            
+            }
+    } }
+
