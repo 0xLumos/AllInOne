@@ -2,10 +2,11 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:viewmodels="clr-namespace:AllInOne.ViewModels" x:DataType="viewmodels:LoginViewModel"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:viewmodels="clr-namespace:AllInOne.ViewModels" x:DataType="viewmodels:RegisterViewModel"
              mc:Ignorable="d"
-             x:Class="AllInOne.Views.LoginPage"
+             x:Class="AllInOne.Views.RegisterPage"
              Shell.NavBarIsVisible="False">
+    
     <ContentPage.Content>
        
         <StackLayout Padding="30,0,10,0" VerticalOptions="Center">
@@ -17,8 +18,7 @@
                            PlaceholderColor="red" HeightRequest="50"   
                            IsPassword="True"  
                            TextColor="red"/>
-            <Button VerticalOptions="Center" Text="Login" Command="{Binding LoginCommand}"/>
-            <Button VerticalOptions="Center" Text="Register" Command="{Binding RegisterButton}"/>
+            <Button VerticalOptions="Center" Text="Register" Command="{Binding RegisterCommand}"/>
             <Label  TextColor="red" Text="{Binding ErrorMessage}" />
 
         </StackLayout>

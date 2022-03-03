@@ -2,7 +2,7 @@
 using Xamarin.Forms;
 namespace AllInOne.ViewModels
 {
-    public class LoginViewModel : BaseViewModel
+    public class RegisterViewModel : BaseViewModel
     {
         private string errorMessage;
         public string ErrorMessage { get => errorMessage;
@@ -32,46 +32,21 @@ namespace AllInOne.ViewModels
 
             }
         }
-        public Command LoginCommand { protected set; get; }
+        public Command RegisterCommand { protected set; get; }
         public Command RegisterButton { protected set; get; }
-        public LoginViewModel()
+        public RegisterViewModel()
         {
-            LoginCommand = new Command(OnLoginClicked);
+            RegisterCommand = new Command(OnRegisterClicked);
             RegisterButton = new Command(RegisterLink);
         }
-    
+        public async void OnRegisterClicked()
+        {
+            await Shell.Current.GoToAsync($"//{nameof(LoginPage)}");
+        }
         public async void RegisterLink()
         {
             await Shell.Current.GoToAsync($"//{nameof(RegisterPage)}");
         }
 
-        public async void OnLoginClicked()
-        {
-            // if(user !=null ){
-            if (email != null || password != null)
-            {
-                if (email != "user" || password != "secret")
-
-                {
-                    ErrorMessage = "Wrong email or password!";
-
-
-                }
-
-                else
-                {
-
-                    await Shell.Current.GoToAsync($"//{nameof(ItemsPage)}");
-
-                }
-              
-            }
-            else
-            {
-                ErrorMessage = "Please specify both fields";
-            }
-               
-            
-            }
     } }
 
