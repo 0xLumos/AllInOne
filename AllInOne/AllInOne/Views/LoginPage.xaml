@@ -7,19 +7,43 @@
              x:Class="AllInOne.Views.LoginPage"
              Shell.NavBarIsVisible="False">
     <ContentPage.Content>
-       
-        <StackLayout Padding="30,0,10,0" VerticalOptions="Center">
-            <Entry x:Name="Email" Text="{Binding Email, Mode=TwoWay}" Placeholder="Email"   
+
+        <StackLayout>
+            <ScrollView>
+                <StackLayout>
+                    <Grid>
+                        <StackLayout VerticalOptions="Center" BackgroundColor="Red" HeightRequest="290"  >
+                         
+                            <Label TextColor="White" FontSize="30" Text="AI1" HeightRequest="240" YAlign="Center" XAlign="Center" LineBreakMode="TailTruncation" />
+                            <Label TextColor="White" FontSize="20" Text="All you need In 1 app" HeightRequest="240" YAlign="Center" XAlign="Center" LineBreakMode="TailTruncation" />
+                        </StackLayout>
+                    </Grid>
+
+                    <StackLayout Padding="40" Spacing="20" >
+                        <Entry x:Name="Email" Text="{Binding Email, Mode=TwoWay}" Placeholder="Email"   
                            PlaceholderColor="red" HeightRequest="50"   
                            Keyboard="Email"  
                            TextColor="red"/>
-            <Entry x:Name="Password" Text="{Binding Password, Mode=TwoWay}" Placeholder="Password"   
+                        <Entry x:Name="Password" Text="{Binding Password, Mode=TwoWay}" Placeholder="Password"   
                            PlaceholderColor="red" HeightRequest="50"   
                            IsPassword="True"  
                            TextColor="red"/>
-            <Button VerticalOptions="Center" Text="Login" Command="{Binding LoginCommand}"/>
-            <Button VerticalOptions="Center" Text="Register" Command="{Binding RegisterButton}"/>
-            <Label  TextColor="red" Text="{Binding ErrorMessage}" />
+
+                        <Button Text="Login" HeightRequest="50" BackgroundColor="red" TextColor="White" Command="{Binding LoginCommand}" CornerRadius="5" />
+                        <Label  TextColor="red" Text="{Binding ErrorMessage}" />
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                            <BoxView BackgroundColor="red" HorizontalOptions="FillAndExpand" VerticalOptions="Center" HeightRequest="1" />
+                            <Label Text="OR" TextColor="red" HorizontalOptions="Center"  VerticalOptions="Center" FontSize="Medium" />
+                            <BoxView BackgroundColor="red" HorizontalOptions="FillAndExpand" VerticalOptions="Center" HeightRequest="1"  />
+
+                        </StackLayout>
+                        <Button Text="Register" HeightRequest="50" BackgroundColor="Green" Command="{Binding RegisterButton}" TextColor="White" CornerRadius="5" HorizontalOptions="Center" WidthRequest="320" />
+
+                    </StackLayout>
+                </StackLayout>
+
+            </ScrollView>
+
 
         </StackLayout>
     </ContentPage.Content>
