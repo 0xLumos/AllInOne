@@ -11,30 +11,29 @@
         <StackLayout>
             <ScrollView>
                 <StackLayout>
-                    <Grid>
-                        <StackLayout VerticalOptions="Center" BackgroundColor="Red" HeightRequest="290"  >
-                         
-                            <Label TextColor="White" FontSize="30" Text="AI1" HeightRequest="240" YAlign="Center" XAlign="Center" LineBreakMode="TailTruncation" />
-                            <Label TextColor="White" FontSize="20" Text="All you need In 1 app" HeightRequest="240" YAlign="Center" XAlign="Center" LineBreakMode="TailTruncation" />
-                        </StackLayout>
+                    <Grid >
+
+
+                        <Image Source="logo.png" />
+
                     </Grid>
 
-                    <StackLayout Padding="40" Spacing="20" >
+                    <StackLayout Padding="40"  >
                         <Entry x:Name="Email" Text="{Binding Email, Mode=TwoWay}" Placeholder="Email"   
-                           PlaceholderColor="red" HeightRequest="50"   
+                           PlaceholderColor="#ef5350" HeightRequest="50"   
                            Keyboard="Email"  
-                           TextColor="red"/>
+                           TextColor="#ef5350"/>
                         <Entry x:Name="Password" Text="{Binding Password, Mode=TwoWay}" Placeholder="Password"   
-                           PlaceholderColor="red" HeightRequest="50"   
+                           PlaceholderColor="#ef5350" HeightRequest="50"   
                            IsPassword="True"  
-                           TextColor="red"/>
+                           TextColor="#ef5350"/>
 
-                        <Button Text="Login" HeightRequest="50" BackgroundColor="red" TextColor="White" Command="{Binding LoginCommand}" CornerRadius="5" />
-                        <Label  TextColor="red" Text="{Binding ErrorMessage}" />
+                        <Button Text="Login" HeightRequest="50" BackgroundColor="#ef5350" TextColor="White" Command="{Binding LoginCommand}" CornerRadius="5" />
+                        <Label  TextColor="#ef5350" Text="{Binding ErrorMessage}" />
                         <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
-                            <BoxView BackgroundColor="red" HorizontalOptions="FillAndExpand" VerticalOptions="Center" HeightRequest="1" />
-                            <Label Text="OR" TextColor="red" HorizontalOptions="Center"  VerticalOptions="Center" FontSize="Medium" />
-                            <BoxView BackgroundColor="red" HorizontalOptions="FillAndExpand" VerticalOptions="Center" HeightRequest="1"  />
+                            <BoxView BackgroundColor="#ef5350" HorizontalOptions="FillAndExpand" VerticalOptions="Center" HeightRequest="1" />
+                            <Label Text="OR" TextColor="#ef5350" HorizontalOptions="Center"  VerticalOptions="Center" FontSize="Medium" />
+                            <BoxView BackgroundColor="#ef5350" HorizontalOptions="FillAndExpand" VerticalOptions="Center" HeightRequest="1"  />
 
                         </StackLayout>
                         <Button Text="Register" HeightRequest="50" BackgroundColor="Green" Command="{Binding RegisterButton}" TextColor="White" CornerRadius="5" HorizontalOptions="Center" WidthRequest="320" />
