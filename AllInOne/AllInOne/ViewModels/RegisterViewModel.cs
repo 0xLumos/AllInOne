@@ -12,6 +12,29 @@ namespace AllInOne.ViewModels
             }
         }
 
+        public string firstname;
+
+        public string Firstname
+        {
+            get { return firstname; }
+            set
+            {
+                firstname = value;
+
+            }
+        }
+        public string lastname;
+        public string Lastname
+        {
+            get { return lastname; }
+            set
+            {
+                lastname = value;
+
+            }
+        }
+
+
         private string email;
         public string Email
         {
@@ -32,6 +55,21 @@ namespace AllInOne.ViewModels
 
             }
         }
+
+
+        public string cnfrmpswd;
+
+        public string CnfrmPswd
+        {
+            get { return cnfrmpswd; }
+            set
+            {
+                lastname = value;
+
+            }
+        }
+
+    
         public Command RegisterCommand { protected set; get; }
         public Command RegisterButton { protected set; get; }
         public RegisterViewModel()

@@ -10,14 +10,27 @@
     <ContentPage.Content>
        
         <StackLayout Padding="30,0,10,0" VerticalOptions="Center">
+            <Entry x:Name="Firstname" Text="{Binding Firstname, Mode=TwoWay}" Placeholder="First Name"   
+                           PlaceholderColor="red" HeightRequest="50"   
+                           Keyboard="Firstname"  
+                           TextColor="red"/>
+            <Entry x:Name="Lastname" Text="{Binding Lastname, Mode=TwoWay}" Placeholder="Last Name"   
+                           PlaceholderColor="red" HeightRequest="50"   
+                           Keyboard="Lastname"  
+                           TextColor="red"/>
             <Entry x:Name="Email" Text="{Binding Email, Mode=TwoWay}" Placeholder="Email"   
                            PlaceholderColor="red" HeightRequest="50"   
-                           Keyboard="Email"  
+                           Keyboard="Email"   
                            TextColor="red"/>
             <Entry x:Name="Password" Text="{Binding Password, Mode=TwoWay}" Placeholder="Password"   
                            PlaceholderColor="red" HeightRequest="50"   
                            IsPassword="True"  
                            TextColor="red"/>
+            <Entry x:Name="CnfrmPassword" Text="{Binding CnfrmPswd, Mode=TwoWay}" Placeholder="Confirm Your Password"   
+                           PlaceholderColor="red" HeightRequest="50"   
+                           IsPassword="True"  
+                           TextColor="red"/>
+            
             <Button VerticalOptions="Center" Text="Register" Command="{Binding RegisterCommand}"/>
             <Label  TextColor="red" Text="{Binding ErrorMessage}" />
 
