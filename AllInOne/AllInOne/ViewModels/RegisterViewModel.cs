@@ -79,8 +79,21 @@ namespace AllInOne.ViewModels
         }
         public async void OnRegisterClicked()
         {
-            await Shell.Current.GoToAsync($"//{nameof(LoginPage)}");
+            if (firstname != null && lastname !=null && password != null && cnfrmpswd != null && email!= null )
+            {
+
+                await Shell.Current.GoToAsync($"//{nameof(LoginPage)}");
+            }
+            
         }
+        public Command CancelCommand { get; }
+
+        private async void OnCancel()
+        {
+            // This will pop the current page off the navigation stack
+            await Shell.Current.GoToAsync("..");
+        }
+
         public async void RegisterLink()
         {
             await Shell.Current.GoToAsync($"//{nameof(RegisterPage)}");

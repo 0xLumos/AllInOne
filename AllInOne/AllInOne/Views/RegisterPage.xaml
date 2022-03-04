@@ -32,6 +32,7 @@
                            TextColor="red"/>
             
             <Button VerticalOptions="Center" Text="Register" Command="{Binding RegisterCommand}"/>
+            <Button Text="Cancel" Command="{Binding CancelCommand}" HorizontalOptions="FillAndExpand"></Button>
             <Label  TextColor="red" Text="{Binding ErrorMessage}" />
 
         </StackLayout>
