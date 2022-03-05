@@ -10,20 +10,32 @@ namespace AllInOne.ViewModels
     public class ItemDetailViewModel : BaseViewModel
     {
         private string itemId;
-        private string text;
+        private string name;
         private string description;
+        private string price;
+        private string icon;
         public string Id { get; set; }
 
-        public string Text
+        public string Name
         {
-            get => text;
-            set => SetProperty(ref text, value);
+            get => name;
+            set => SetProperty(ref name, value);
         }
 
         public string Description
         {
             get => description;
             set => SetProperty(ref description, value);
+        }
+        public string Icon
+        {
+            get => icon;
+            set => SetProperty(ref icon, value);
+        }
+        public string Price
+        {
+            get => price;
+            set => SetProperty(ref price, value);
         }
 
         public string ItemId
@@ -45,8 +57,9 @@ namespace AllInOne.ViewModels
             {
                 var item = await DataStore.GetItemAsync(itemId);
                 Id = item.Id;
-                Text = item.Text;
+                Name = item.Name;
                 Description = item.Description;
+                Icon = item.Icon;
             }
             catch (Exception)
             {

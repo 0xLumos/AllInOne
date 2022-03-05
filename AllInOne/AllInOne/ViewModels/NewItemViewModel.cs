@@ -9,8 +9,10 @@ namespace AllInOne.ViewModels
 {
     public class NewItemViewModel : BaseViewModel
     {
-        private string text;
+        private string name;
         private string description;
+        private string icon;
+        private string price;
 
         public NewItemViewModel()
         {
@@ -22,14 +24,20 @@ namespace AllInOne.ViewModels
 
         private bool ValidateSave()
         {
-            return !String.IsNullOrWhiteSpace(text)
-                && !String.IsNullOrWhiteSpace(description);
+            return !String.IsNullOrWhiteSpace(name)
+                && !String.IsNullOrWhiteSpace(description)
+                && !String.IsNullOrWhiteSpace(price);
         }
 
-        public string Text
+        public string Name
         {
-            get => text;
-            set => SetProperty(ref text, value);
+            get => name;
+            set => SetProperty(ref name, value);
+        }
+        public string Icon
+        {
+            get => icon;
+            set => SetProperty(ref icon, value);
         }
 
         public string Description
@@ -37,7 +45,11 @@ namespace AllInOne.ViewModels
             get => description;
             set => SetProperty(ref description, value);
         }
-
+        public string Price
+        {
+            get => price;
+            set => SetProperty(ref price, value);
+        }
         public Command SaveCommand { get; }
         public Command CancelCommand { get; }
 
@@ -52,8 +64,9 @@ namespace AllInOne.ViewModels
             Item newItem = new Item()
             {
                 Id = Guid.NewGuid().ToString(),
-                Text = Text,
-                Description = Description
+                Name = name,
+                Description = Description,
+                Price = price
             };
 
             await DataStore.AddItemAsync(newItem);

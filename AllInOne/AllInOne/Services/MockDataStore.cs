@@ -14,12 +14,11 @@ namespace AllInOne.Services
         {
             items = new List<Item>()
             {
-                new Item { Id = Guid.NewGuid().ToString(), Text = "First item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Second item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Third item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Fourth item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Fifth item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Sixth item", Description="This is an item description." }
+                new Item { Id = Guid.NewGuid().ToString(), Name = "Chair x97", Description="This is a chair.", Icon= "chair.ong"},
+                new Item { Id = Guid.NewGuid().ToString(), Name = "Sofa", Description="This is a chair", Price= "$ 123" },
+                new Item { Id = Guid.NewGuid().ToString(), Name = "Bed", Description="This is a chair" },
+                new Item { Id = Guid.NewGuid().ToString(), Name = "Lamp", Description="This is a chair" },
+                new Item { Id = Guid.NewGuid().ToString(), Name = "Table", Description="This is a chair"}
             };
         }
 
