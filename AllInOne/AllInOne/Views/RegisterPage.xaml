@@ -5,32 +5,20 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:viewmodels="clr-namespace:AllInOne.ViewModels" x:DataType="viewmodels:RegisterViewModel"
              mc:Ignorable="d"
              x:Class="AllInOne.Views.RegisterPage"
-             x:Name="register_page">
+             x:Name="register_page"
+             Shell.NavBarIsVisible="False">
     
     <ContentPage.Content>
        
         <StackLayout Padding="30,0,10,0" VerticalOptions="Center">
-            <Entry x:Name="Firstname" Text="{Binding Firstname, Mode=TwoWay}" Placeholder="First Name"   
-                           PlaceholderColor="red" HeightRequest="50"   
-                           Keyboard="Firstname"  
-                           TextColor="red"/>
-            <Entry x:Name="Lastname" Text="{Binding Lastname, Mode=TwoWay}" Placeholder="Last Name"   
-                           PlaceholderColor="red" HeightRequest="50"   
-                           Keyboard="Lastname"  
-                           TextColor="red"/>
             <Entry x:Name="Email" Text="{Binding Email, Mode=TwoWay}" Placeholder="Email"   
-                           PlaceholderColor="red" HeightRequest="50"   
-                           Keyboard="Email"   
-                           TextColor="red"/>
+                           PlaceholderColor="#ef5350" HeightRequest="50"   
+                           Keyboard="Email"  
+                           TextColor="#ef5350"/>
             <Entry x:Name="Password" Text="{Binding Password, Mode=TwoWay}" Placeholder="Password"   
-                           PlaceholderColor="red" HeightRequest="50"   
+                           PlaceholderColor="#ef5350" HeightRequest="50"   
                            IsPassword="True"  
-                           TextColor="red"/>
-            <Entry x:Name="CnfrmPassword" Text="{Binding CnfrmPswd, Mode=TwoWay}" Placeholder="Confirm Your Password"   
-                           PlaceholderColor="red" HeightRequest="50"   
-                           IsPassword="True"  
-                           TextColor="red"/>
-            
+                           TextColor="#ef5350"/>
             <Button VerticalOptions="Center" Text="Register" Command="{Binding RegisterCommand}"/>
             <Button Text="Cancel" Command="{Binding CancelCommand}" HorizontalOptions="FillAndExpand"></Button>
             <Label  TextColor="red" Text="{Binding ErrorMessage}" />
