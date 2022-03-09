@@ -2,10 +2,10 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:viewmodels="clr-namespace:AllInOne.ViewModels" x:DataType="viewmodels:RegisterViewModel"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:viewmodels="clr-namespace:AllInOne.ViewModel" x:DataType="ViewModels:RegisterViewModel"
              mc:Ignorable="d"
              x:Class="AllInOne.Views.RegisterPage"
-             Shell.NavBarIsVisible="False">
+             x:Name="register_page">
     
     <ContentPage.Content>
        

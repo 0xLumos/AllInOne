@@ -1,16 +1,9 @@
-﻿using Firebase.Database;
-using Firebase.Database.Query;
-using AllInOne.Views;
+﻿using AllInOne.Views;
 using Xamarin.Forms;
-using System.Threading.Tasks;
-
-using Firebase;
 namespace AllInOne.ViewModels
 {
-    public class LoginViewModel : BaseViewModel
+    public class ProfileViewModel : BaseViewModel
     {
-
-        IAuth auth;
         private string errorMessage;
         public string ErrorMessage { get => errorMessage;
             set {
@@ -41,14 +34,12 @@ namespace AllInOne.ViewModels
         }
         public Command LoginCommand { protected set; get; }
         public Command RegisterButton { protected set; get; }
-        public LoginViewModel()
+        public ProfileViewModel()
         {
             LoginCommand = new Command(OnLoginClicked);
             RegisterButton = new Command(RegisterLink);
-            auth = DependencyService.Get<IAuth>();
-
         }
-
+    
         public async void RegisterLink()
         {
             await Shell.Current.GoToAsync($"//{nameof(RegisterPage)}");
@@ -59,43 +50,28 @@ namespace AllInOne.ViewModels
             // if(user !=null ){
             if (email != null || password != null)
             {
-                string token = await auth.Login(email, password);
-                if (token != string.Empty)
+                if (email != "user" || password != "secret")
+
                 {
-                    await Shell.Current.GoToAsync($"//{nameof(ItemsPage)}");
+                    ErrorMessage = "Wrong email or password!";
+
+
                 }
+
                 else
                 {
-                    ErrorMessage = "Email or password empty !";
+                    
+                    await Shell.Current.GoToAsync($"//{nameof(ItemsPage)}");
+                 
                 }
+              
             }
-            //if (email != null || password != null)
-            //{
-            //    if (email != "user" || password != "secret")
-
-            //    {
-            //        ErrorMessage = "Wrong email or password!";
-
-
-            //    }
-
-            //    else
-            //    {
-
-            //        await Shell.Current.GoToAsync($"//{nameof(ItemsPage)}");
-
-            //    }
-
-
             else
             {
                 ErrorMessage = "Please specify both fields";
             }
-
-
-        }
-    }
-}
-
-
+               
+            
+            }
+    } }
 

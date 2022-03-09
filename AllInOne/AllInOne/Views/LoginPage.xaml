@@ -17,6 +17,15 @@
                         <Image Source="logo.png" />
 
                     </Grid>
+                    <!--<CollectionView ItemsSource="{Binding DatabaseItems}">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout>
+                                    <Label Text="{Binding MyProperty}" />
+                                </StackLayout>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>-->
 
                     <StackLayout Padding="40"  >
                         <Entry x:Name="Email" Text="{Binding Email, Mode=TwoWay}" Placeholder="Email"   

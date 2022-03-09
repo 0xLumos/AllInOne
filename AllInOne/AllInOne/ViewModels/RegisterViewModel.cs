@@ -1,9 +1,11 @@
 ﻿using AllInOne.Views;
+using AllInOne.Models;
 using Xamarin.Forms;
 namespace AllInOne.ViewModels
 {
     public class RegisterViewModel : BaseViewModel
     {
+        IAuth auth;
         private string errorMessage;
         public string ErrorMessage { get => errorMessage;
             set {
@@ -76,12 +78,14 @@ namespace AllInOne.ViewModels
         {
             RegisterCommand = new Command(OnRegisterClicked);
             RegisterButton = new Command(RegisterLink);
+            auth = DependencyService.Get<IAuth>();
         }
         public async void OnRegisterClicked()
         {
-            if (firstname != null && lastname !=null && password != null && cnfrmpswd != null && email!= null )
+            var user = auth.Signup(email, password);
+            if (user !=null )
             {
-
+                await App.Current.MainPage.DisplayAlert("Success", "Account created !", "OK");
                 await Shell.Current.GoToAsync($"//{nameof(LoginPage)}");
             }
             
