@@ -1,7 +1,9 @@
 ﻿using AllInOne.Views;
 using AllInOne.Models;
 using Xamarin.Forms;
+using Firebase;
 namespace AllInOne.ViewModels
+   
 {
     public class RegisterViewModel : BaseViewModel
     {

@@ -66,7 +66,7 @@ namespace AllInOne.ViewModels
                 }
                 else
                 {
-                    ErrorMessage = "Email or password empty !";
+                    ErrorMessage = "Incorrect email or password !";
                 }
             }
             //if (email != null || password != null)

@@ -1,9 +1,11 @@
 ﻿using System;
-
+using Firebase.Database;
 using Android.App;
 using Android.Content.PM;
 using Android.Runtime;
 using Android.OS;
+using Firebase;
+
 
 namespace AllInOne.Droid
 {
@@ -14,6 +16,7 @@ namespace AllInOne.Droid
         {
             base.OnCreate(savedInstanceState);
 
+            FirebaseApp.InitializeApp(Application.Context);
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             LoadApplication(new App());
