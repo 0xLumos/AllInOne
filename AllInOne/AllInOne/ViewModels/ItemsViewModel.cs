@@ -1,4 +1,5 @@
 ﻿using AllInOne.Models;
+using AllInOne.Services;
 using AllInOne.Views;
 using System;
 using System.Collections.ObjectModel;
@@ -12,6 +13,7 @@ namespace AllInOne.ViewModels
     {
         private Item _selectedItem;
 
+        private FirebaseDB server;
         public ObservableCollection<Item> Items { get; }
         public Command LoadItemsCommand { get; }
         public Command AddItemCommand { get; }

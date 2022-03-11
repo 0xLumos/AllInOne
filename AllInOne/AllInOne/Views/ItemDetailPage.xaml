@@ -5,11 +5,11 @@
              Title="{Binding Title}">
 
     <StackLayout Spacing="20" Padding="15">
-        <Label Text="Product:" FontSize="Medium" />
-        <Label Text="{Binding Name}" FontSize="Small"/>
-        <Label Text="{Binding Price}" FontSize="Small"/>
-        <Label Text="{Binding Icon}" FontSize="Small"/>
-        <Label Text="{Binding Description}" FontSize="Small"/>
+        <Label Text="{Binding Name}" FontSize="Large"/>
+        <Label Text="{Binding Price}" FontSize="Large"/>
+        <Image Source="{Binding Icon}"></Image>
+        <Label Text="{Binding Description}" FontSize="Medium"/>
+        <Button Text="Add To Cart" Command="{Binding SaveCommand}" HorizontalOptions="FillAndExpand"></Button>
     </StackLayout>
     
 </ContentPage>
