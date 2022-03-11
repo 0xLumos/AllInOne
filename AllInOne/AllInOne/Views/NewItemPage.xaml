@@ -4,23 +4,29 @@
              x:Class="AllInOne.Views.NewItemPage"
              Shell.PresentationMode="ModalAnimated"
              Title="New Item"
-             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" xmlns:viewmodels="clr-namespace:AllInOne.ViewModels" x:DataType="viewmodels:NewItemViewModel"
              ios:Page.UseSafeArea="true">
     <ContentPage.Content>
-        <StackLayout Spacing="3" Padding="15">
-            <Label Text="Produt's name:" FontSize="Medium" />
-            <Entry Text="{Binding Name, Mode=TwoWay}" FontSize="Medium" />
-            <Label Text="Description:" FontSize="Medium" />
-            <Editor Text="{Binding Description, Mode=TwoWay}" AutoSize="TextChanges" FontSize="Medium" Margin="0" />
-            <Label Text="Price of the product:" FontSize="Medium" />
-            <Entry Text="{Binding Price, Mode=TwoWay}" FontSize="Medium" />
-            <Label Text="Image:" FontSize="Medium" />
+        
+        <StackLayout Padding="40"  >
+            <StackLayout   Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                <Entry x:Name="Name" Text="{Binding Name, Mode=TwoWay}" Placeholder="Name"   
+                           PlaceholderColor="#ef5350" HeightRequest="50"   
+                           TextColor="#ef5350"/>
+            </StackLayout>
+            <Entry x:Name="Description" Text="{Binding Description, Mode=TwoWay}" Placeholder="Description"   
+                           PlaceholderColor="#ef5350" HeightRequest="50"   
+                           TextColor="#ef5350"/>
+            <Entry x:Name="Price" Text="{Binding Price, Mode=TwoWay}" Placeholder="Price"   
+                           PlaceholderColor="#ef5350" HeightRequest="50"   
+                           TextColor="#ef5350"/>
 
-            <Entry Text="{Binding Icon, Mode=TwoWay}" FontSize="Medium" />
             <StackLayout Orientation="Horizontal">
                 <Button Text="Cancel" Command="{Binding CancelCommand}" HorizontalOptions="FillAndExpand"></Button>
-                <Button Text="Save" Command="{Binding SaveCommand}" HorizontalOptions="FillAndExpand"></Button>
+                <Button Text="Save" Command="{Binding AddItemCommand}" HorizontalOptions="FillAndExpand"></Button>
             </StackLayout>
+            <!--<Label  TextColor="#ef5350" Text="{Binding ErrorMessage}" />-->
+
         </StackLayout>
     </ContentPage.Content>
     

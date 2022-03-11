@@ -1,7 +1,10 @@
 ﻿using AllInOne.Models;
+using AllInOne.Services;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -9,23 +12,38 @@ namespace AllInOne.ViewModels
 {
     public class NewItemViewModel : BaseViewModel
     {
-        private string name;
-        private string description;
-        private string icon;
-        private string price;
+        public string name;
+        public string description;
+        public string icon;
+        public string price;
+
+        private FirebaseDB firebase;
+
+        public Command AddItemCommand { get; }
+
+        private ObservableCollection<Item> _items = new ObservableCollection<Item>();
 
         public NewItemViewModel()
         {
+            firebase = new FirebaseDB();
+            _items = firebase.GetItems(); 
+
             SaveCommand = new Command(OnSave, ValidateSave);
             CancelCommand = new Command(OnCancel);
+            AddItemCommand= new Command(async () => await AddItemAsync(name, description, icon, price));
             this.PropertyChanged +=
                 (_, __) => SaveCommand.ChangeCanExecute();
         }
 
+        public async Task AddItemAsync(string name, string description, string icon, string price)
+        {
+            await firebase.AddItems(name, description, icon, price);
+        }
         private bool ValidateSave()
         {
             return !String.IsNullOrWhiteSpace(name)
                 && !String.IsNullOrWhiteSpace(description)
+                && !String.IsNullOrWhiteSpace(icon)
                 && !String.IsNullOrWhiteSpace(price);
         }
 

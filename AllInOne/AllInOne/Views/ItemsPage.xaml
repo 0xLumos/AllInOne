@@ -20,28 +20,31 @@
                 SelectionMode="None">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <StackLayout Padding="10" x:DataType="model:Item">
-                        <Label Text="{Binding Name}" 
-                            LineBreakMode="NoWrap" 
+                    <StackLayout Padding="40" x:DataType="model:Item">
+                        <StackLayout   Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                            <BoxView BackgroundColor="#ef5350" HorizontalOptions="FillAndExpand" VerticalOptions="Center" HeightRequest="1" />
+                            <Label Text="{Binding Name}" 
+                                   FontSize="Large"
+                            LineBreakMode="NoWrap"
+                                   TextColor="#ef5350"
                             Style="{DynamicResource ListItemTextStyle}" 
-                               
-                               
-                               
-                               
-                               
-                               
-                               
-                               
+                               />
+                            <BoxView BackgroundColor="#ef5350" HorizontalOptions="FillAndExpand" VerticalOptions="Center" HeightRequest="1"  />
+                        </StackLayout>
                         
-                        ></Label><Label Text="{Binding Price}" 
+                            <Image Source="{Binding Icon}"></Image>
+                        <BoxView BackgroundColor="#ef5350" HorizontalOptions="FillAndExpand" VerticalOptions="Center" HeightRequest="1" />
+                        <Label Text="{Binding Price}" 
                             LineBreakMode="NoWrap"
+                               
                             Style="{DynamicResource ListItemDetailTextStyle}"
-                            FontSize="13" />
+                             FontSize="Large" />
+                        <Label Text="{Binding Description}" 
+                            LineBreakMode="NoWrap"
+                               
+                            Style="{DynamicResource ListItemDetailTextStyle}"
+                             FontSize="Medium" />
                         
-                        <Label Text="{Binding Id}" 
-                            LineBreakMode="NoWrap"
-                            Style="{DynamicResource ListItemDetailTextStyle}"
-                            FontSize="13" />
                         <StackLayout.GestureRecognizers>
                             <TapGestureRecognizer 
                                 NumberOfTapsRequired="1"
