@@ -19,7 +19,7 @@ namespace AllInOne.Services
         }
         public async Task AddItems(string name, string description, string icon, string price)
         {
-            Item item = new Item() { Name = name, Description = description, Icon = icon, Price= price};
+            Item item = new Item() { Name = name, Description = description, Icon = icon, Price = price };
             await client
                 .Child("Items")
                 .PostAsync(item);
