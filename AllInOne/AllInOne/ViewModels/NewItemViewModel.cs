@@ -88,7 +88,7 @@ namespace AllInOne.ViewModels
             };
 
             await DataStore.AddItemAsync(newItem);
-
+            await AddItemAsync(name, description, icon, price); ;
             // This will pop the current page off the navigation stack
             await Shell.Current.GoToAsync("..");
         }
