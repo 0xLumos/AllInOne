@@ -16,14 +16,16 @@ namespace AllInOne.ViewModels
         private FirebaseDB server;
         public ObservableCollection<Item> Items { get; }
         public Command LoadItemsCommand { get; }
+        public Command GetItems { get; }
         public Command AddItemCommand { get; }
         public Command<Item> ItemTapped { get; }
 
         public ItemsViewModel()
         {
-            Title = "Browse";
+            Title = "AI1";
             Items = new ObservableCollection<Item>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
+            //GetItems = new Command(async () => await server.GetItems());
 
             ItemTapped = new Command<Item>(OnItemSelected);
 
@@ -52,7 +54,7 @@ namespace AllInOne.ViewModels
                 IsBusy = false;
             }
         }
-
+        
         public void OnAppearing()
         {
             IsBusy = true;
@@ -73,6 +75,7 @@ namespace AllInOne.ViewModels
         {
             await Shell.Current.GoToAsync(nameof(NewItemPage));
         }
+
 
         async void OnItemSelected(Item item)
         {

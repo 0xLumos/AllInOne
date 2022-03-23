@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:viewmodels="clr-namespace:AllInOne.ViewModel" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:viewmodels="clr-namespace:AllInOne.ViewModel" xmlns:viewmodels1="clr-namespace:AllInOne.ViewModels" x:DataType="viewmodels1:ItemDetailViewModel"
              x:Class="AllInOne.Views.ItemDetailPage"
              Title="{Binding Title}">
 
@@ -9,7 +9,7 @@
         <Label Text="{Binding Price}" FontSize="Large"/>
         <Image Source="{Binding Icon}"></Image>
         <Label Text="{Binding Description}" FontSize="Medium"/>
-        <Button Text="Add To Cart" Command="{Binding SaveCommand}" HorizontalOptions="FillAndExpand"></Button>
+        <!--<Button Text="Add To Cart" Command="{Binding CartCommand}" HorizontalOptions="FillAndExpand"></Button>-->
     </StackLayout>
     
 </ContentPage>

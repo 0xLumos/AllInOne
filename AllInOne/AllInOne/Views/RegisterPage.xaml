@@ -20,7 +20,7 @@
                            IsPassword="True"  
                            TextColor="#ef5350"/>
             <Button VerticalOptions="Center" Text="Register" Command="{Binding RegisterCommand}"/>
-            <Button Text="Cancel" Command="{Binding CancelCommand}" HorizontalOptions="FillAndExpand"></Button>
+            <Button VerticalOptions="Center" Text="Cancel" Command="{Binding CancelCommand}"/>
             <Label  TextColor="red" Text="{Binding ErrorMessage}" />
 
         </StackLayout>

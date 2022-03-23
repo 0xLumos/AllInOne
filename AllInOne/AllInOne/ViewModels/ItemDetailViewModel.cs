@@ -1,4 +1,5 @@
 ﻿using AllInOne.Models;
+using AllInOne.Views;
 using System;
 using System.Diagnostics;
 using System.Threading.Tasks;
@@ -50,7 +51,10 @@ namespace AllInOne.ViewModels
                 LoadItemId(value);
             }
         }
-
+        //public async void CartCommand()
+        //{
+        //    await Shell.Current.GoToAsync($"//{nameof(AddToCart)}");
+        //}
         public async void LoadItemId(string itemId)
         {
             try
