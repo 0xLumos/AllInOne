@@ -1,5 +1,6 @@
 ﻿using AllInOne.Models;
 using AllInOne.Services;
+using AllInOne.Views;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -30,20 +31,19 @@ namespace AllInOne.ViewModels
 
             SaveCommand = new Command(OnSave, ValidateSave);
             CancelCommand = new Command(OnCancel);
-            AddItemCommand= new Command(async () => await AddItemAsync(name, description, icon, price));
+            AddItemCommand= new Command(async () => await AddItemAsync(name, description,  price));
             this.PropertyChanged +=
                 (_, __) => SaveCommand.ChangeCanExecute();
         }
 
-        public async Task AddItemAsync(string name, string description, string icon, string price)
+        public async Task AddItemAsync(string name, string description, string price)
         {
-            await firebase.AddItems(name, description, icon, price);
+            await firebase.AddItems(name, description, price);
         }
         private bool ValidateSave()
         {
             return !String.IsNullOrWhiteSpace(name)
                 && !String.IsNullOrWhiteSpace(description)
-                && !String.IsNullOrWhiteSpace(icon)
                 && !String.IsNullOrWhiteSpace(price);
         }
 
@@ -88,10 +88,10 @@ namespace AllInOne.ViewModels
             };
 
             await DataStore.AddItemAsync(newItem);
-            await AddItemAsync(name, description, icon, price);
+            await AddItemAsync(name, description,  price);
 
             // This will pop the current page off the navigation stack
-            await Shell.Current.GoToAsync("..");
+            await Shell.Current.GoToAsync($"//{nameof(ItemsPage)}");
         }
     }
 }

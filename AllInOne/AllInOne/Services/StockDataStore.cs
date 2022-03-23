@@ -16,7 +16,7 @@ namespace AllInOne.Services
         }
         public Task<bool>  AddItemAsync(Item item)
         {
-            _ = db.AddItems(item.Name, item.Price, item.Description, item.Icon);
+            _ = db.AddItems(item.Name, item.Price, item.Description);
             throw new NotImplementedException();
         }
 
