@@ -14,7 +14,7 @@ namespace AllInOne.Services
         {
             items = new List<Item>()
             {
-                new Item { Id = Guid.NewGuid().ToString(), Name = "Chair ", Description="This is a chair.", Price= "123",Icon= "chair.png"},
+                new Item { Id = Guid.NewGuid().ToString(), Name = "Chair ", Description="This is a chair.", Price= "123sss",Icon= "chair.png"},
                 new Item { Id = Guid.NewGuid().ToString(), Name = "Sofa", Description="This is a chair", Price= "123", Icon="sofa.png" },
                 new Item { Id = Guid.NewGuid().ToString(), Name = "Bed", Description="This is a chair" , Price= "123",Icon="bed.png"},
                 new Item { Id = Guid.NewGuid().ToString(), Name = "Lamp", Description="This is a chair" , Price= "123",Icon="lamp.png"},

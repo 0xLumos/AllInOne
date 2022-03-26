@@ -3,6 +3,7 @@ using AllInOne.Views;
 using System;
 using System.Diagnostics;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using Xamarin.Forms;
 
 namespace AllInOne.ViewModels
@@ -10,12 +11,24 @@ namespace AllInOne.ViewModels
     [QueryProperty(nameof(ItemId), nameof(ItemId))]
     public class ItemDetailViewModel : BaseViewModel
     {
+        public Command BuyButton { protected set; get; }
+        public ItemDetailViewModel()
+        {
+            BuyButton = new Command(BuyLink);
+
+        }
+        public async void BuyLink()
+        {
+            await Shell.Current.GoToAsync($"//{nameof(RegisterPage)}");
+        }
         private string itemId;
         private string name;
         private string description;
         private string price;
         private string icon;
         public string Id { get; set; }
+
+        
 
         public string Name
         {
@@ -51,10 +64,10 @@ namespace AllInOne.ViewModels
                 LoadItemId(value);
             }
         }
-        //public async void CartCommand()
-        //{
-        //    await Shell.Current.GoToAsync($"//{nameof(AddToCart)}");
-        //}
+        public async void BuyCommand()
+        {
+            await Shell.Current.GoToAsync(nameof(PayPage));
+        }
         public async void LoadItemId(string itemId)
         {
             try
@@ -63,6 +76,7 @@ namespace AllInOne.ViewModels
                 Id = item.Id;
                 Name = item.Name;
                 Description = item.Description;
+                Price = item.Price;
                 Icon = item.Icon;
             }
             catch (Exception)
@@ -70,5 +84,9 @@ namespace AllInOne.ViewModels
                 Debug.WriteLine("Failed to Load Item");
             }
         }
+
+
+
+        }
     }
-}
+

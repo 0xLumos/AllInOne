@@ -78,6 +78,7 @@ namespace AllInOne.ViewModels
         public Command RegisterButton { protected set; get; }
         public RegisterViewModel()
         {
+            CancelCommand = new Command(OnCancel);
             RegisterCommand = new Command(OnRegisterClicked);
             RegisterButton = new Command(RegisterLink);
             auth = DependencyService.Get<IAuth>();
@@ -97,7 +98,7 @@ namespace AllInOne.ViewModels
         private async void OnCancel()
         {
             // This will pop the current page off the navigation stack
-            await Shell.Current.GoToAsync("..");
+            await Shell.Current.GoToAsync($"//{nameof(LoginPage)}");
         }
 
         public async void RegisterLink()

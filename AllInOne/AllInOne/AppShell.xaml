@@ -14,15 +14,15 @@
     <Shell.Resources>
         <ResourceDictionary>
             <Style x:Key="BaseStyle" TargetType="Element">
-                <Setter Property="Shell.BackgroundColor" Value="red" />
+                <Setter Property="Shell.BackgroundColor" Value="#ef5350" />
                 <Setter Property="Shell.ForegroundColor" Value="white" />
                 <Setter Property="Shell.TitleColor" Value="white" />
                 <Setter Property="Shell.DisabledColor" Value="white" />
-                <Setter Property="Shell.UnselectedColor" Value="red" />
+                <Setter Property="Shell.UnselectedColor" Value="#ef5350" />
                 <Setter Property="Shell.TabBarBackgroundColor" Value="{StaticResource Primary}" />
-                <Setter Property="Shell.TabBarForegroundColor" Value="red"/>
-                <Setter Property="Shell.TabBarUnselectedColor" Value="red"/>
-                <Setter Property="Shell.TabBarTitleColor" Value="red"/>
+                <Setter Property="Shell.TabBarForegroundColor" Value="#ef5350"/>
+                <Setter Property="Shell.TabBarUnselectedColor" Value="#ef5350"/>
+                <Setter Property="Shell.TabBarTitleColor" Value="#ef5350"/>
             </Style>
             <Style TargetType="TabBar" BasedOn="{StaticResource BaseStyle}" />
             <Style TargetType="FlyoutItem" BasedOn="{StaticResource BaseStyle}" />

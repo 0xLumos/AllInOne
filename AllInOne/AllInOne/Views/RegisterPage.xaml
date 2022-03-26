@@ -6,6 +6,7 @@
              mc:Ignorable="d"
              x:Class="AllInOne.Views.RegisterPage"
              x:Name="register_page"
+             Shell.TabBarIsVisible="False"
              Shell.NavBarIsVisible="False">
     
     <ContentPage.Content>

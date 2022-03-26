@@ -6,10 +6,10 @@
 
     <StackLayout Spacing="20" Padding="15">
         <Label Text="{Binding Name}" FontSize="Large"/>
-        <Label Text="{Binding Price}" FontSize="Large"/>
         <Image Source="{Binding Icon}"></Image>
         <Label Text="{Binding Description}" FontSize="Medium"/>
-        <!--<Button Text="Add To Cart" Command="{Binding CartCommand}" HorizontalOptions="FillAndExpand"></Button>-->
+        <Label Style="{DynamicResource ListItemDetailTextStyle}" Text="{Binding Price, StringFormat='Price : £ {0}'}" />
+        <Button Text="{Binding Price, StringFormat='Buy : £ {0}'}" Command="{Binding BuyButton}" HorizontalOptions="FillAndExpand"></Button>
     </StackLayout>
     
 </ContentPage>

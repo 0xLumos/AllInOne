@@ -5,6 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:viewmodels="clr-namespace:AllInOne.ViewModels" x:DataType="viewmodels:LoginViewModel"
              mc:Ignorable="d"
              x:Class="AllInOne.Views.LoginPage"
+             Shell.TabBarIsVisible="False"
              Shell.NavBarIsVisible="False">
     <ContentPage.Content>
 
