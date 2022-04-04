@@ -12,8 +12,8 @@ namespace AllInOne.ViewModels
     public class ItemsViewModel : BaseViewModel
     {
         private Item _selectedItem;
-
         private FirebaseDB server;
+
         public ObservableCollection<Item> Items { get; }
         public Command LoadItemsCommand { get; }
         public Command GetItems { get; }
@@ -22,10 +22,10 @@ namespace AllInOne.ViewModels
 
         public ItemsViewModel()
         {
+            server = new FirebaseDB();
             Title = "AI1";
-            Items = new ObservableCollection<Item>();
+            Items = server.GetItems();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
-            //GetItems = new Command(async () => await server.GetItems());
 
             ItemTapped = new Command<Item>(OnItemSelected);
 

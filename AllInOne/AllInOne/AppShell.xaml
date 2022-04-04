@@ -81,10 +81,9 @@
    
     <FlyoutItem Title="Browse" Icon="icon_feed.png">
         <ShellContent Route="ItemsPage" ContentTemplate="{DataTemplate local:ItemsPage}" />
+        
     </FlyoutItem>
-    <FlyoutItem Title="Profile" Icon="icon_about.png">
-        <ShellContent Route="AboutPage" ContentTemplate="{DataTemplate local:AboutPage}" />
-    </FlyoutItem>
+
 
 
 
@@ -92,6 +91,8 @@
     <TabBar>
         <ShellContent x:Name="login_page" Route="LoginPage" ContentTemplate="{DataTemplate local:LoginPage}" />
         <ShellContent  Route="RegisterPage" ContentTemplate="{DataTemplate local:RegisterPage}" />
+        <ShellContent Route="PayPage" ContentTemplate="{DataTemplate local:PayPage}" />
+        <!--<ShellContent Route="AdminPage" ContentTemplate="{DataTemplate local:AdminPage}" />-->
     </TabBar>
 
 

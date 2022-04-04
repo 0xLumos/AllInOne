@@ -1,12 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:viewmodels="clr-namespace:AllInOne.ViewModels" x:DataType="viewmodels:PayViewModel"
+             mc:Ignorable="d"
              x:Class="AllInOne.Views.PayPage"
-             xmlns:vm="clr-namespace:AllInOne.ViewModels"
-             Title="{Binding Title}">
+             Shell.TabBarIsVisible="False"
+             Shell.NavBarIsVisible="False">
     
     <ContentPage.BindingContext>
-        <vm:AboutViewModel />
+        <viewmodels:PayViewModel />
     </ContentPage.BindingContext>
     
     <ContentPage.Resources>
@@ -15,19 +18,17 @@
         </ResourceDictionary>
     </ContentPage.Resources>
 
-    <StackLayout>
-        <Label Text="Date of Birth"/>
-        <DatePicker />
-        <Entry x:Name="Email" Text="{Binding Email, Mode=TwoWay}" Placeholder="{Binding Email, Mode=TwoWay}"   
-                           PlaceholderColor="#ef5350" HeightRequest="50"   
-                           Keyboard="Email"  
-                           TextColor="#ef5350"/>
-        <Entry x:Name="Password" Text="{Binding Password, Mode=TwoWay}" Placeholder="{Binding Password, Mode=TwoWay}"  
-                           PlaceholderColor="#ef5350" HeightRequest="50"   
-                           IsPassword="True"  
-                           TextColor="#ef5350"/>
+    <StackLayout VerticalOptions="CenterAndExpand" Spacing="3" Padding="15">
+        <Label Text="Name On Card:" FontSize="Medium" />
+        <Entry Text="{Binding NameOnCard, Mode=TwoWay}" FontSize="Medium" />
+        <Label Text="Sort Code:" FontSize="Medium" />
+        <Editor Text="{Binding SortCode, Mode=TwoWay}" AutoSize="TextChanges" FontSize="Medium" Margin="0" />
+        <Label Text="Expiry Date:" FontSize="Medium" />
+        <Entry Text="{Binding ExpiryDate, Mode=TwoWay}" FontSize="Medium" />
+        <!--<Label Text="Image:" FontSize="Medium" /><Button Text="Upload" Clicked="Photo_Uploaded" />-->
 
-        <Button Text="Update" HorizontalOptions="CenterAndExpand" VerticalOptions="End"/>
-     </StackLayout>
-
+        <Button Text="PAY" Command="{Binding SaveCommand}" HorizontalOptions="FillAndExpand"></Button>
+        <Button Text="Cancel" Command="{Binding CancelCommand}" HorizontalOptions="FillAndExpand"></Button>
+        
+    </StackLayout>
 </ContentPage>

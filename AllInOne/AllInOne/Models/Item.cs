@@ -9,7 +9,7 @@ namespace AllInOne.Models
         public string Price { get; set; }
         public string Description { get; set; }
         public string Icon {get; set; }
-
-       
+        public string IconTwo { get; internal set; }
+        public string IconThree { get; internal set; }
     }
 }

@@ -15,7 +15,6 @@
             <Editor Text="{Binding Description, Mode=TwoWay}" AutoSize="TextChanges" FontSize="Medium" Margin="0" />
             <Label Text="Price of the product:" FontSize="Medium" />
             <Entry Text="{Binding Price, Mode=TwoWay}" FontSize="Medium" />
-            <!--<Label Text="Image:" FontSize="Medium" /><Button Text="Upload" Clicked="Photo_Uploaded" />-->
 
             <StackLayout Orientation="Horizontal">
                 <Button Text="Cancel" Command="{Binding CancelCommand}" HorizontalOptions="FillAndExpand"></Button>

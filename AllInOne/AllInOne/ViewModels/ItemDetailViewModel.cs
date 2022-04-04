@@ -11,21 +11,24 @@ namespace AllInOne.ViewModels
     [QueryProperty(nameof(ItemId), nameof(ItemId))]
     public class ItemDetailViewModel : BaseViewModel
     {
-        public Command BuyButton { protected set; get; }
+        public Command BuyCommand { protected set; get; }
         public ItemDetailViewModel()
         {
-            BuyButton = new Command(BuyLink);
+            BuyCommand = new Command(BuyLink);
 
         }
         public async void BuyLink()
         {
-            await Shell.Current.GoToAsync($"//{nameof(RegisterPage)}");
+            await Shell.Current.GoToAsync($"//{nameof(PayPage)}");
         }
         private string itemId;
         private string name;
         private string description;
         private string price;
         private string icon;
+        private string icontwo;
+        private string iconthree;
+
         public string Id { get; set; }
 
         
@@ -46,6 +49,16 @@ namespace AllInOne.ViewModels
             get => icon;
             set => SetProperty(ref icon, value);
         }
+        public string IconTwo
+        {
+            get => icontwo;
+            set => SetProperty(ref icontwo, value);
+        }
+        public string IconThree
+        {
+            get => icon;
+            set => SetProperty(ref iconthree, value);
+        }
         public string Price
         {
             get => price;
@@ -64,10 +77,6 @@ namespace AllInOne.ViewModels
                 LoadItemId(value);
             }
         }
-        public async void BuyCommand()
-        {
-            await Shell.Current.GoToAsync(nameof(PayPage));
-        }
         public async void LoadItemId(string itemId)
         {
             try
@@ -78,6 +87,8 @@ namespace AllInOne.ViewModels
                 Description = item.Description;
                 Price = item.Price;
                 Icon = item.Icon;
+                IconTwo = item.IconTwo;
+                IconThree = item.IconThree;
             }
             catch (Exception)
             {

@@ -16,29 +16,6 @@ namespace AllInOne.ViewModels
             }
         }
 
-        public string firstname;
-
-        public string Firstname
-        {
-            get { return firstname; }
-            set
-            {
-                firstname = value;
-
-            }
-        }
-        public string lastname;
-        public string Lastname
-        {
-            get { return lastname; }
-            set
-            {
-                lastname = value;
-
-            }
-        }
-
-
         private string email;
         public string Email
         {
@@ -61,17 +38,6 @@ namespace AllInOne.ViewModels
         }
 
 
-        public string cnfrmpswd;
-
-        public string CnfrmPswd
-        {
-            get { return cnfrmpswd; }
-            set
-            {
-                lastname = value;
-
-            }
-        }
 
     
         public Command RegisterCommand { protected set; get; }
@@ -80,7 +46,6 @@ namespace AllInOne.ViewModels
         {
             CancelCommand = new Command(OnCancel);
             RegisterCommand = new Command(OnRegisterClicked);
-            RegisterButton = new Command(RegisterLink);
             auth = DependencyService.Get<IAuth>();
         }
         public async void OnRegisterClicked()
@@ -97,14 +62,9 @@ namespace AllInOne.ViewModels
 
         private async void OnCancel()
         {
-            // This will pop the current page off the navigation stack
             await Shell.Current.GoToAsync($"//{nameof(LoginPage)}");
         }
 
-        public async void RegisterLink()
-        {
-            await Shell.Current.GoToAsync($"//{nameof(RegisterPage)}");
-        }
 
     } }
 

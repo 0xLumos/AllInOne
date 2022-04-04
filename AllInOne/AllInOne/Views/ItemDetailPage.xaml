@@ -8,8 +8,7 @@
         <Label Text="{Binding Name}" FontSize="Large"/>
         <Image Source="{Binding Icon}"></Image>
         <Label Text="{Binding Description}" FontSize="Medium"/>
-        <Label Style="{DynamicResource ListItemDetailTextStyle}" Text="{Binding Price, StringFormat='Price : £ {0}'}" />
-        <Button Text="{Binding Price, StringFormat='Buy : £ {0}'}" Command="{Binding BuyButton}" HorizontalOptions="FillAndExpand"></Button>
+        <Button Text="{Binding Price, StringFormat='Buy : £ {0}'}" Command="{Binding BuyCommand}" HorizontalOptions="FillAndExpand"></Button>
     </StackLayout>
-    
+
 </ContentPage>

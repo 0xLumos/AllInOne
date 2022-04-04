@@ -57,36 +57,24 @@ namespace AllInOne.ViewModels
         public async void OnLoginClicked()
         {
             // if(user !=null ){
-            if (email != null || password != null)
+            if (email != null && password != null)
             {
+                //if (email == "admin")
+                //{
+                //    await Shell.Current.GoToAsync($"//{nameof(AdminPage)}");
+                //}
                 string token = await auth.Login(email, password);
                 if (token != string.Empty)
                 {
                     await Shell.Current.GoToAsync($"//{nameof(ItemsPage)}");
+                    email = null;
+                    password = null;
                 }
                 else
                 {
                     ErrorMessage = "Incorrect email or password !";
                 }
             }
-            //if (email != null || password != null)
-            //{
-            //    if (email != "user" || password != "secret")
-
-            //    {
-            //        ErrorMessage = "Wrong email or password!";
-
-
-            //    }
-
-            //    else
-            //    {
-
-            //        await Shell.Current.GoToAsync($"//{nameof(ItemsPage)}");
-
-            //    }
-
-
             else
             {
                 ErrorMessage = "Please specify both fields";

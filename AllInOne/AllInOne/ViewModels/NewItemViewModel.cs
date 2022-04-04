@@ -83,13 +83,22 @@ namespace AllInOne.ViewModels
             {
                 Id = Guid.NewGuid().ToString(),
                 Name = name,
-                Description = Description,
+                Description = description,
                 Price = price
             };
 
-            await DataStore.AddItemAsync(newItem);
-            await AddItemAsync(name, description,  price);
 
+            string urlToPhoto = await firebase.AddItems(name, description, price);
+            Item newestItem = new Item()
+            {
+                Id = Guid.NewGuid().ToString(),
+                Name = name,
+                Description = description,
+                Price = price,
+                Icon = urlToPhoto
+            };
+            Console.WriteLine(newestItem.Icon);
+            await DataStore.AddItemAsync(newItem);
             // This will pop the current page off the navigation stack
             await Shell.Current.GoToAsync($"//{nameof(ItemsPage)}");
         }
