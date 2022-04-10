@@ -26,8 +26,6 @@ namespace AllInOne.ViewModels
         private string description;
         private string price;
         private string icon;
-        private string icontwo;
-        private string iconthree;
 
         public string Id { get; set; }
 
@@ -48,16 +46,6 @@ namespace AllInOne.ViewModels
         {
             get => icon;
             set => SetProperty(ref icon, value);
-        }
-        public string IconTwo
-        {
-            get => icontwo;
-            set => SetProperty(ref icontwo, value);
-        }
-        public string IconThree
-        {
-            get => icon;
-            set => SetProperty(ref iconthree, value);
         }
         public string Price
         {
@@ -87,8 +75,6 @@ namespace AllInOne.ViewModels
                 Description = item.Description;
                 Price = item.Price;
                 Icon = item.Icon;
-                IconTwo = item.IconTwo;
-                IconThree = item.IconThree;
             }
             catch (Exception)
             {

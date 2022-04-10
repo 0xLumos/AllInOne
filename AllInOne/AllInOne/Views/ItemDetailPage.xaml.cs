@@ -10,6 +10,7 @@ namespace AllInOne.Views
         {
             InitializeComponent();
             BindingContext = new ItemDetailViewModel();
+
         }
     }
 }

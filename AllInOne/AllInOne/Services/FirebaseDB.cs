@@ -49,7 +49,7 @@ namespace AllInOne.Services
             //Youtube tutorial https://www.youtube.com/watch?v=KzDIeI8rJNI&t=260s
             // CRUD Operations
             Item item = new Item() { Name = name, Description = description, Price = price, Icon = downloadlink };
-            
+
             await client
                 .Child("Items")
                 .PostAsync(item);

@@ -5,11 +5,14 @@ using Xamarin.Forms;
 using System.Threading.Tasks;
 
 using Firebase;
+using AllInOne.Models;
+using System.Collections.ObjectModel;
+
 namespace AllInOne.ViewModels
 {
     public class LoginViewModel : BaseViewModel
     {
-
+        public ObservableCollection<User> Individuals { get; set; } = new ObservableCollection<User>();
         IAuth auth;
         private string errorMessage;
         public string ErrorMessage { get => errorMessage;

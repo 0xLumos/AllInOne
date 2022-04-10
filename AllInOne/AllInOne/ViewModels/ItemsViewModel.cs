@@ -54,7 +54,7 @@ namespace AllInOne.ViewModels
                 IsBusy = false;
             }
         }
-        
+
         public void OnAppearing()
         {
             IsBusy = true;

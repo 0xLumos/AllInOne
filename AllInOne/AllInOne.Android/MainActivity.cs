@@ -15,7 +15,7 @@ namespace AllInOne.Droid
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-
+            //Xamarin.Forms.DependencyService.Register<SettingsManager>();
             FirebaseApp.InitializeApp(Application.Context);
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);

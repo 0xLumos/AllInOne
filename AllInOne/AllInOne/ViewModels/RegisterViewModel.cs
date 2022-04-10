@@ -2,19 +2,28 @@
 using AllInOne.Models;
 using Xamarin.Forms;
 using Firebase;
+using System;
+using System.Collections.ObjectModel;
+using System.Threading.Tasks;
+
 namespace AllInOne.ViewModels
    
 {
     public class RegisterViewModel : BaseViewModel
     {
+
+        public ObservableCollection<User> Individuals { get; set; } = new ObservableCollection<User>();
+
         IAuth auth;
         private string errorMessage;
+
         public string ErrorMessage { get => errorMessage;
             set {
                 errorMessage = value;
                 OnPropertyChanged();
             }
         }
+
 
         private string email;
         public string Email
@@ -44,6 +53,7 @@ namespace AllInOne.ViewModels
         public Command RegisterButton { protected set; get; }
         public RegisterViewModel()
         {
+            
             CancelCommand = new Command(OnCancel);
             RegisterCommand = new Command(OnRegisterClicked);
             auth = DependencyService.Get<IAuth>();
@@ -58,6 +68,8 @@ namespace AllInOne.ViewModels
             }
             
         }
+
+
         public Command CancelCommand { get; }
 
         private async void OnCancel()

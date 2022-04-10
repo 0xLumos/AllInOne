@@ -21,17 +21,17 @@ namespace AllInOne.ViewModels
         private FirebaseDB firebase;
 
         public Command AddItemCommand { get; }
-
+        public ObservableCollection<Item> ToTestItems { get; set; } = new ObservableCollection<Item>();
         private ObservableCollection<Item> _items = new ObservableCollection<Item>();
 
         public NewItemViewModel()
         {
             firebase = new FirebaseDB();
-            _items = firebase.GetItems(); 
+            _items = firebase.GetItems();
 
             SaveCommand = new Command(OnSave, ValidateSave);
             CancelCommand = new Command(OnCancel);
-            AddItemCommand= new Command(async () => await AddItemAsync(name, description,  price));
+            AddItemCommand = new Command(async () => await AddItemAsync(name, description, price));
             this.PropertyChanged +=
                 (_, __) => SaveCommand.ChangeCanExecute();
         }

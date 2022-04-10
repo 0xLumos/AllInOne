@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AllInOne.Models;
+using System;
 using System.Threading.Tasks;
 
 
@@ -9,5 +10,6 @@ namespace AllInOne
         Task<string> Login(string username, string password);
         Task<string> Signup(string username, string password);
         bool Signout();
+        void Signup(User user);
     }
 }

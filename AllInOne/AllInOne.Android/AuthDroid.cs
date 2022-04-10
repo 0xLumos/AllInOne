@@ -4,6 +4,7 @@ using Xamarin.Forms;
 using Firebase.Auth;
 using System.Threading.Tasks;
 using Android.Gms.Extensions;
+using AllInOne.Models;
 
 [assembly: Dependency(typeof(AuthDroid))]
 namespace AllInOne.Droid
@@ -56,6 +57,11 @@ namespace AllInOne.Droid
                 e.PrintStackTrace();
                 return String.Empty;
             }
+        }
+
+        public void Signup(User user)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -7,11 +7,13 @@ using System.Runtime.CompilerServices;
 using Xamarin.Forms;
 using Firebase.Database.Query;
 using Firebase.Database;
+using System.Threading.Tasks;
 
 namespace AllInOne.ViewModels
 {
-    public class BaseViewModel : INotifyPropertyChanged
+    public abstract class BaseViewModel : INotifyPropertyChanged
     {
+        
         public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>();
 
         bool isBusy = false;

@@ -4,10 +4,10 @@
              x:Class="AllInOne.Views.ItemsPage"
              Title="{Binding Title}"
              xmlns:local="clr-namespace:AllInOne.ViewModels"  
-             xmlns:model="clr-namespace:AllInOne.Models"  
+             xmlns:model="clr-namespace:AllInOne.Models" x:DataType="local:ItemsViewModel"
              x:Name="BrowseItemsPage">
- 
-        <ContentPage.ToolbarItems>
+
+    <ContentPage.ToolbarItems>
         <ToolbarItem Text="Add" Command="{Binding AddItemCommand}" />
     </ContentPage.ToolbarItems>
     <!--
@@ -16,18 +16,18 @@
     -->
 
 
-            <RefreshView x:DataType="local:ItemsViewModel" Command="{Binding LoadItemsCommand}" IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
-       
-                <CollectionView x:Name="ItemsListView"
+    <RefreshView x:DataType="local:ItemsViewModel" Command="{Binding LoadItemsCommand}" IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
+
+        <CollectionView x:Name="ItemsListView"
                 ItemsSource="{Binding Items}"
                 SelectionMode="None">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    
+
                     <StackLayout Padding="40" x:DataType="model:Item">
-                   
-                        
-                            <Image Source="{Binding Icon}"></Image>
+
+
+                        <Image Source="{Binding Icon}"></Image>
                         <BoxView BackgroundColor="#ef5350" HorizontalOptions="FillAndExpand" VerticalOptions="Center" HeightRequest="1" />
                         <StackLayout   Orientation="Horizontal" HorizontalOptions="FillAndExpand">
                             <!--<BoxView BackgroundColor="#ef5350" HorizontalOptions="FillAndExpand" VerticalOptions="Center" HeightRequest="1" />-->
@@ -37,7 +37,7 @@
                                    TextColor="#ef5350"
                             Style="{DynamicResource ListItemTextStyle}" 
                                />
-                            
+
                             <!--<BoxView BackgroundColor="#ef5350" HorizontalOptions="FillAndExpand" VerticalOptions="Center" HeightRequest="1"  />-->
                         </StackLayout>
                         <Label Text="{Binding Description}" 
@@ -54,15 +54,15 @@
                                 NumberOfTapsRequired="1"
                                 Command="{Binding Source={RelativeSource AncestorType={x:Type local:ItemsViewModel}}, Path=ItemTapped}"		
                                 CommandParameter="{Binding .}">
-                                
+
                             </TapGestureRecognizer>
                         </StackLayout.GestureRecognizers>
-                        
-                        
+
+
                     </StackLayout>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
     </RefreshView>
-   
+
 </ContentPage>
