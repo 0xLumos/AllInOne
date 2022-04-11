@@ -60,13 +60,40 @@ namespace AllInOne.ViewModels
         }
         public async void OnRegisterClicked()
         {
-            var user = auth.Signup(email, password);
-            if (user !=null )
+            if (Email != null && Password != null)
             {
-                await App.Current.MainPage.DisplayAlert("Success", "Account created !", "OK");
-                await Shell.Current.GoToAsync($"//{nameof(LoginPage)}");
+                bool isEmail = Email.Contains("@");
+                if (isEmail)
+                {
+                    if (Password.Length >= 8)
+                    {
+                        var user = auth.Signup(email, password);
+                        if (user != null)
+                        {
+                            await App.Current.MainPage.DisplayAlert("Success", "Account created !", "OK");
+                            await Shell.Current.GoToAsync($"//{nameof(LoginPage)}");
+                        }
+                    }
+                    else
+                    {
+                        ErrorMessage = "Password must be minimumm of 8";
+                    }
+                }
+                else
+                {
+                    ErrorMessage = "Please insert an Email (@ required)";
+                }
+                    
+               
+
+
             }
-            
+            else
+            {
+                ErrorMessage = "User or Password is Empty";
+            }
+
+
         }
 
 
