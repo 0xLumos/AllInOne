@@ -63,45 +63,18 @@ namespace AllInOne.ViewModels
             RegisterCommand = new Command(OnRegisterClicked);
             auth = DependencyService.Get<IAuth>();
         }
-        public bool IsValidEmail(string emailaddress)
-        {
-            try
-            {
-                MailAddress m = new MailAddress(emailaddress);
+ 
 
-                return true;
-            }
-            catch (FormatException)
-            {
-                return false;
-            }
-        }
-        public bool ValidatePassword(string password)
-        {
-            //ValidatePassword method taken from https://social.msdn.microsoft.com/Forums/vstudio/en-US/7364a191-15cc-453e-8007-65a83e717410/password-complexity-in-c?forum=csharpgeneral#:~:text=Password%20will%20be%20match%20to,letter%2C%20and%20one%20numeric%20digit.&text=If%20you%20store%20it%2C%20the,but%20the%20Database%2Fstorage%20backend.
-            //Password must be at least 8 characters, no more than 12 characters, and must include at least one upper case letter,
-            //one lower case letter, and one numeric digit
-            string patternPassword = @"^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,12}$";
-            if (!string.IsNullOrEmpty(password))
-            {
-                if (!Regex.IsMatch(password, patternPassword))
-                {
-                    return false;
-                }
-
-            }
-            return true;
-        }
         public async void OnRegisterClicked()
         {
             if (Email != null && Password != null)
             {
 
-                if (IsValidEmail(Email))
+                if (ValidData.IsValidEmail(Email))
                 {
                     if (Password.Length >= 8)
                     {
-                        if (ValidatePassword(Password))
+                        if (ValidData.IsValidPassword(Password))
                         {
                             var user = auth.Signup(email, password);
                             if (user != null)
